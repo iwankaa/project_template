@@ -4,6 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "==0.12.1"
+black = "==24.2.0"
+matplotlib = "==3.8.2"
+pandas = "==2.2.0"
+pylint = "==3.1.0"
+pytest = "==8.1.1"
+seaborn = "==0.13.1"
 
 [dev-packages]
 
