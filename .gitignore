@@ -1,0 +1,7 @@
+# Pipenv
+Pipfile.lock
+
+# Environment variables
+.env
+
+.idea/
