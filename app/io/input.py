@@ -21,9 +21,12 @@ def get_data_from_file(filename):
     Returns:
         string: the data from file
     """
-    file = open(filename, "r")
-    read_content = file.read()
-    return read_content
+    try:
+        file = open(filename, "r")
+        read_content = file.read()
+        return read_content
+    except FileNotFoundError:
+        return "\nError. File not found"
 
 
 def get_data_pandas(filename):
@@ -34,7 +37,12 @@ def get_data_pandas(filename):
         filename (str): The name of the file to  read.
 
     Returns:
-        string: the data from file as a dataframe
+        pandas.DataFrame or str: The data read from the file as a DataFrame, or an error message if an error occurs.
     """
-    dataframe = pandas.read_csv(filename)
-    return dataframe
+    try:
+        dataframe = pandas.read_csv(filename)
+        return dataframe
+    except FileNotFoundError:
+        return "\nError. File not found"
+    except pandas.errors.EmptyDataError:
+        return "\nError. Empty data in file"
